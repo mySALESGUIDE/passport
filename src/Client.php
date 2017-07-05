@@ -2,9 +2,8 @@
 
 namespace Laravel\Passport;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Client extends \Mpociot\Couchbase\Eloquent\Model
 {
     /**
      * The database table used by the model.
