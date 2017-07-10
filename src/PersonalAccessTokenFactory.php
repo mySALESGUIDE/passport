@@ -123,9 +123,8 @@ class PersonalAccessTokenFactory
      */
     protected function findAccessToken(array $response)
     {
-        return Token::where(
-            "id",
+        return $this->tokens->find(
             $this->jwt->parse($response['access_token'])->getClaim('jti')
-        )->first();
+        );
     }
 }
