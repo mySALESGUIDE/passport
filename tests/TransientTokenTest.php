@@ -1,6 +1,6 @@
 <?php
 
-class TransientTokenTest extends PHPUnit_Framework_TestCase
+class TransientTokenTest extends BaseTestCase
 {
     public function test_transient_token_can_do_anything()
     {

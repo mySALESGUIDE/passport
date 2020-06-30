@@ -97,7 +97,7 @@ class ClientRepository
         $client = (new Client)->forceFill([
             'user_id' => $userId,
             'name' => $name,
-            'secret' => str_random(40),
+            'secret' => class_exists(\Str::class) ? \Str::random(40) : str_random(40),
             'redirect' => $redirect,
             'personal_access_client' => $personalAccess,
             'password_client' => $password,
@@ -161,7 +161,7 @@ class ClientRepository
     public function regenerateSecret(Client $client)
     {
         $client->forceFill([
-            'secret' => str_random(40),
+            'secret' => class_exists(\Str::class) ? \Str::random(40) : str_random(40),
         ])->save();
 
         return $client;

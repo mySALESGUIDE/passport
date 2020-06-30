@@ -3,7 +3,7 @@
 namespace Laravel\Passport;
 
 
-class Client extends \Mpociot\Couchbase\Eloquent\Model
+class Client extends \ORT\Interactive\Couchbase\Eloquent\Model
 {
     /**
      * The database table used by the model.

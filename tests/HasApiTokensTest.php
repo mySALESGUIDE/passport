@@ -2,11 +2,12 @@
 
 use Illuminate\Container\Container;
 
-class HasApiTokensTest extends PHPUnit_Framework_TestCase
+class HasApiTokensTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_token_can_indicates_if_token_has_given_scope()

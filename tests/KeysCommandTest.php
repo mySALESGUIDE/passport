@@ -10,9 +10,9 @@ function custom_path($file = null)
     return __DIR__.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.$file;
 }
 
-class KeysCommandTest extends PHPUnit_Framework_TestCase
+class KeysCommandTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
 
@@ -20,6 +20,8 @@ class KeysCommandTest extends PHPUnit_Framework_TestCase
         @unlink(storage_path('oauth-public.key'));
         @unlink(custom_path('oauth-private.key'));
         @unlink(custom_path('oauth-public.key'));
+
+        parent::tearDown();
     }
 
     public function testPrivateAndPublicKeysAreGenerated()

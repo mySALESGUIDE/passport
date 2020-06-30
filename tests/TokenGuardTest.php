@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Container\Container;
 use Laravel\Passport\Guards\TokenGuard;
 
-class TokenGuardTest extends PHPUnit_Framework_TestCase
+class TokenGuardTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_user_can_be_pulled_via_bearer_token()

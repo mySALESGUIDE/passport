@@ -5,6 +5,7 @@ namespace Laravel\Passport\Console;
 use phpseclib\Crypt\RSA;
 use Laravel\Passport\Passport;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 
 class KeysCommand extends Command
 {
@@ -41,8 +42,8 @@ class KeysCommand extends Command
             return $this->error('Encryption keys already exist. Use the --force option to overwrite them.');
         }
 
-        file_put_contents($publicKey, array_get($keys, 'publickey'));
-        file_put_contents($privateKey, array_get($keys, 'privatekey'));
+        file_put_contents($publicKey, class_exists(Arr::class) ? Arr::get($keys, 'publickey') : array_get($keys, 'publickey'));
+        file_put_contents($privateKey, class_exists(Arr::class) ? Arr::get($keys, 'privatekey') : array_get($keys, 'privatekey'));
 
         $this->info('Encryption keys generated successfully.');
     }

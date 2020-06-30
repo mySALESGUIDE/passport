@@ -2,11 +2,12 @@
 
 use Laravel\Passport\Bridge\ClientRepository;
 
-class BridgeClientRepositoryTest extends PHPUnit_Framework_TestCase
+class BridgeClientRepositoryTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_can_get_client_for_auth_code_grant()

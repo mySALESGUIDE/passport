@@ -2,7 +2,7 @@
 
 use Laravel\Passport\Passport;
 
-class PassportTest extends PHPUnit_Framework_TestCase
+class PassportTest extends BaseTestCase
 {
     public function test_scopes_can_be_managed()
     {

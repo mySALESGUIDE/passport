@@ -2,11 +2,12 @@
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 
-class DenyAuthorizationControllerTest extends PHPUnit_Framework_TestCase
+class DenyAuthorizationControllerTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_authorization_can_be_denied()

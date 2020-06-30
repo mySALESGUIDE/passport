@@ -3,11 +3,12 @@
 use Illuminate\Http\Request;
 use Laravel\Passport\Http\Middleware\CheckClientCredentials;
 
-class CheckClientCredentialsTest extends PHPUnit_Framework_TestCase
+class CheckClientCredentialsTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_request_is_passed_along_if_token_is_valid()
@@ -31,11 +32,9 @@ class CheckClientCredentialsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('response', $response);
     }
 
-    /**
-     * @expectedException Illuminate\Auth\AuthenticationException
-     */
     public function test_exception_is_thrown_when_oauth_throws_exception()
     {
+        $this->expectException(\Illuminate\Auth\AuthenticationException::class);
         $resourceServer = Mockery::mock('League\OAuth2\Server\ResourceServer');
         $resourceServer->shouldReceive('validateAuthenticatedRequest')->andReturnUsing(function () {
             throw new League\OAuth2\Server\Exception\OAuthServerException('message', 500, 'error type');
@@ -51,11 +50,9 @@ class CheckClientCredentialsTest extends PHPUnit_Framework_TestCase
         });
     }
 
-    /**
-     * @expectedException \Laravel\Passport\Exceptions\MissingScopeException
-     */
     public function test_exception_is_thrown_if_token_does_not_have_required_scopes()
     {
+        $this->expectException(\Laravel\Passport\Exceptions\MissingScopeException::class);
         $resourceServer = Mockery::mock('League\OAuth2\Server\ResourceServer');
         $resourceServer->shouldReceive('validateAuthenticatedRequest')->andReturn($psr = Mockery::mock());
         $psr->shouldReceive('getAttribute')->with('oauth_user_id')->andReturn(1);

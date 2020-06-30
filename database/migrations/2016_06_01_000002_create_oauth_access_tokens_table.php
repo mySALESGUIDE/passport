@@ -6,6 +6,9 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateOauthAccessTokensTable extends Migration
 {
+
+    protected $connection = 'couchbase';
+
     /**
      * Run the migrations.
      *

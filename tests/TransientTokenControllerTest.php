@@ -2,11 +2,12 @@
 
 use Symfony\Component\HttpFoundation\Cookie;
 
-class TransientTokenControllerTest extends PHPUnit_Framework_TestCase
+class TransientTokenControllerTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_token_can_be_refreshed()

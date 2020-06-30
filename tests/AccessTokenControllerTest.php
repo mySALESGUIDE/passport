@@ -3,11 +3,12 @@
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 
-class AccessTokenControllerTest extends PHPUnit_Framework_TestCase
+class AccessTokenControllerTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_a_token_can_be_issued()

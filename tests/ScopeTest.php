@@ -1,6 +1,6 @@
 <?php
 
-class ScopeTest extends PHPUnit_Framework_TestCase
+class ScopeTest extends BaseTestCase
 {
     public function test_scope_can_be_converted_to_array()
     {

@@ -3,11 +3,12 @@
 use Illuminate\Encryption\Encrypter;
 use Laravel\Passport\ApiTokenCookieFactory;
 
-class ApiTokenCookieFactoryTest extends PHPUnit_Framework_TestCase
+class ApiTokenCookieFactoryTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_cookie_can_be_successfully_created()

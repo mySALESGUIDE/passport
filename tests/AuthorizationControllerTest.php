@@ -3,11 +3,12 @@
 use League\OAuth2\Server\AuthorizationServer;
 use Illuminate\Contracts\Routing\ResponseFactory;
 
-class AuthorizationControllerTest extends PHPUnit_Framework_TestCase
+class AuthorizationControllerTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_authorization_view_is_presented()

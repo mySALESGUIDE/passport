@@ -3,7 +3,7 @@
 namespace Laravel\Passport;
 
 
-class Token extends \Mpociot\Couchbase\Eloquent\Model
+class Token extends \ORT\Interactive\Couchbase\Eloquent\Model
 {
     /**
      * The database table used by the model.

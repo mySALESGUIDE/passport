@@ -3,7 +3,7 @@
 namespace Laravel\Passport;
 
 
-class AuthCode extends \Mpociot\Couchbase\Eloquent\Model
+class AuthCode extends \ORT\Interactive\Couchbase\Eloquent\Model
 {
     /**
      * The database table used by the model.

@@ -2,11 +2,12 @@
 
 use Carbon\Carbon;
 
-class BridgeAccessTokenRepositoryTest extends PHPUnit_Framework_TestCase
+class BridgeAccessTokenRepositoryTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_access_tokens_can_be_persisted()

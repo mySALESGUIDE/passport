@@ -2,11 +2,12 @@
 
 use League\OAuth2\Server\AuthorizationServer;
 
-class ApproveAuthorizationControllerTest extends PHPUnit_Framework_TestCase
+class ApproveAuthorizationControllerTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_complete_authorization_request()

@@ -2,11 +2,12 @@
 
 use Illuminate\Http\Request;
 
-class ClientControllerTest extends PHPUnit_Framework_TestCase
+class ClientControllerTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_all_the_clients_for_the_current_user_can_be_retrieved()

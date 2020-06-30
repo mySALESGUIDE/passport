@@ -1,10 +1,11 @@
 <?php
 
-class PersonalAccessTokenFactoryTest extends PHPUnit_Framework_TestCase
+class PersonalAccessTokenFactoryTest extends BaseTestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
+        parent::tearDown();
     }
 
     public function test_access_token_can_be_created()
